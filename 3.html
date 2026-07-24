@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حکیم صاحب | فیضان دواخانہ</title>
+<link rel="icon" type="image/png" href="f.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root{
+            --ink:#2f2a20;
+            --ink-soft:#5b5140;
+            --paper:#f7f2e6;
+            --paper-deep:#efe7d3;
+            --green-deep:#132b1c;
+            --green:#1d4029;
+            --green-soft:#2c5c3a;
+            --brass:#c19a4d;
+            --brass-light:#e2c988;
+            --maroon:#7a2f2c;
+            --line:#d8cba9;
+            --shadow: 0 18px 40px rgba(19,43,28,.10);
+        }
+
+        *{box-sizing:border-box;}
+
+        body{
+            background:
+                radial-gradient(1200px 600px at 15% -10%, rgba(193,154,77,.10), transparent 60%),
+                var(--paper);
+            margin:0;
+            color:var(--ink);
+            font-family:'Noto Naskh Arabic','Noto Nastaliq Urdu', serif;
+        }
+
+        h1,h2,h3,.signature-word{
+            font-family:'Noto Nastaliq Urdu','Noto Naskh Arabic', serif;
+        }
+
+        /* ---------- Header ---------- */
+        .page-header{
+            position:relative;
+            background:
+                radial-gradient(700px 300px at 85% 0%, rgba(193,154,77,.18), transparent 60%),
+                linear-gradient(180deg, var(--green-deep), var(--green) 85%);
+            color:#f6efdd;
+            padding:190px 20px 130px;
+            text-align:center;
+            overflow:hidden;
+
+        }
+
+        .page-header::before,
+        .page-header::after{
+            content:"";
+            position:absolute;
+            width:220px;
+            height:220px;
+            border:1px solid rgba(226,201,136,.25);
+            border-radius:50%;
+        }
+        .page-header::before{ top:-90px; right:-70px; }
+        .page-header::after{ bottom:-110px; left:-60px; border-color:rgba(226,201,136,.15); }
+
+        .eyebrow{
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            color:var(--brass-light);
+            letter-spacing:.5px;
+            font-size:15px;
+            margin-bottom:22px;
+        }
+        .eyebrow::before,.eyebrow::after{
+            content:"";
+            width:34px;
+            height:1px;
+            background:rgba(226,201,136,.6);
+        }
+
+        .page-header h1{
+            font-size:56px;
+            font-weight:700;
+            margin:0 0 16px;
+            line-height:1.5;
+        }
+
+        .page-header p{
+            font-size:20px;
+            color:#e7dcbe;
+            margin:0;
+        }
+
+        .header-tags{
+            display:flex;
+            justify-content:center;
+            gap:14px;
+            flex-wrap:wrap;
+            margin-top:34px;
+        }
+        .header-tags span{
+            border:1px solid rgba(226,201,136,.4);
+            color:#f0e6c8;
+            padding:8px 20px;
+            border-radius:30px;
+            font-size:15px;
+        }
+
+        /* ---------- Stat strip (signature element) ---------- */
+        .stat-strip{
+            width:90%;
+            max-width:1100px;
+            margin:-46px auto 0;
+            position:relative;
+            z-index:2;
+            background:var(--paper);
+            border:1px solid var(--line);
+            border-radius:16px;
+            box-shadow:var(--shadow);
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+        }
+        .stat-strip div{
+            padding:28px 16px;
+            text-align:center;
+            border-left:1px solid var(--line);
+        }
+        .stat-strip div:last-child{ border-left:none; }
+        .stat-strip strong{
+            display:block;
+            font-size:32px;
+            color:var(--green-deep);
+            font-family:'Noto Nastaliq Urdu', serif;
+        }
+        .stat-strip span{
+            display:block;
+            margin-top:6px;
+            font-size:14.5px;
+            color:var(--ink-soft);
+        }
+
+        /* ---------- Wrapper / cards ---------- */
+        .about-wrapper{
+            width:90%;
+            max-width:1100px;
+            margin:80px auto;
+        }
+
+        .section-label{
+            display:flex;
+            align-items:center;
+            gap:14px;
+            margin-bottom:14px;
+        }
+        .section-label .mark{
+            width:10px;
+            height:10px;
+            border-radius:50%;
+            background:var(--brass);
+            flex:none;
+        }
+        .section-label span{
+            font-size:14px;
+            letter-spacing:.5px;
+            color:var(--green-soft);
+        }
+
+        .about-card{
+            background:#fffdf7;
+            border:1px solid var(--line);
+            border-radius:16px;
+            padding:44px;
+            margin-bottom:30px;
+            box-shadow:var(--shadow);
+            position:relative;
+        }
+
+        .about-card h2{
+            color:var(--green-deep);
+            margin:0 0 20px;
+            font-size:28px;
+            border-right:4px solid var(--brass);
+            padding-right:16px;
+        }
+
+        .about-card p{
+            line-height:2.1;
+            color:var(--ink-soft);
+            font-size:18px;
+            margin:0;
+        }
+
+        .list{
+            margin:0;
+            padding-right:0;
+            list-style:none;
+            display:grid;
+            gap:14px;
+        }
+
+        .list li{
+            display:flex;
+            align-items:flex-start;
+            gap:14px;
+            line-height:1.9;
+            font-size:17.5px;
+            color:var(--ink-soft);
+            background:var(--paper-deep);
+            border:1px solid var(--line);
+            border-radius:12px;
+            padding:16px 18px;
+        }
+
+        .list li .leaf{
+            flex:none;
+            width:28px;
+            height:28px;
+            border-radius:50%;
+            background:var(--green-deep);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .list li .leaf svg{ width:15px; height:15px; }
+
+        /* two-column layout for philosophy/mission/vision */
+        .duo{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:30px;
+        }
+
+        /* ---------- Certificates ---------- */
+        .certificate-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+            gap:24px;
+            margin-top:26px;
+        }
+
+        .certificate{
+            position:relative;
+            border:1px solid var(--line);
+            border-radius:14px;
+            overflow:hidden;
+            text-align:center;
+            color:var(--ink-soft);
+            background:
+                linear-gradient(#fffdf7,#fffdf7) padding-box,
+                repeating-linear-gradient(45deg, var(--brass-light) 0 2px, transparent 2px 10px) border-box;
+            border:2px dashed transparent;
+            box-shadow:0 8px 20px rgba(19,43,28,.06);
+        }
+
+        .certificate img.cert-image{
+            width:calc(100% - 32px);
+            aspect-ratio:16 / 9;
+            object-fit:contain;
+            display:block;
+            margin:16px auto 0;
+            padding:10px;
+            border-radius:12px;
+            background:#fff;
+        }
+
+        .certificate .cert-body{
+            padding:24px 20px 26px;
+        }
+
+        .certificate .seal{
+            width:52px;
+            height:52px;
+            margin:0 auto 14px;
+            border-radius:50%;
+            background:radial-gradient(circle at 35% 30%, var(--brass-light), var(--brass) 70%);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#fff;
+            font-size:12px;
+            font-weight:700;
+            box-shadow:0 4px 10px rgba(193,154,77,.4);
+        }
+
+        .certificate .cert-title{
+            font-weight:600;
+            color:var(--green-deep);
+            font-size:16px;
+        }
+
+        .certificate .cert-note{
+            font-size:13.5px;
+            margin-top:4px;
+            color:var(--ink-soft);
+            opacity:.8;
+        }
+
+        /* ---------- Divider ---------- */
+        .divider{
+            display:flex;
+            align-items:center;
+            gap:16px;
+            margin:50px 0;
+            color:var(--brass);
+        }
+        .divider::before,.divider::after{
+            content:"";
+            flex:1;
+            height:1px;
+            background:var(--line);
+        }
+        .divider svg{ width:22px; height:22px; }
+
+        /* ---------- CTA ---------- */
+        .cta{
+            background:
+                radial-gradient(600px 260px at 20% 0%, rgba(193,154,77,.16), transparent 60%),
+                linear-gradient(180deg, var(--green-deep), var(--green));
+            color:#f6efdd;
+            text-align:center;
+            padding:64px 24px;
+            border-radius:20px;
+            margin-top:56px;
+        }
+
+        .cta h2{
+            margin:0 0 14px;
+            font-size:30px;
+            color:#f6efdd;
+        }
+
+        .cta p{
+            color:#e7dcbe;
+            font-size:17px;
+            margin:0 auto;
+            max-width:520px;
+            line-height:1.9;
+        }
+
+        .cta a{
+            display:inline-block;
+            margin-top:28px;
+            padding:16px 42px;
+            background:var(--brass);
+            color:#1f2a1f;
+            text-decoration:none;
+            border-radius:40px;
+            font-weight:700;
+            font-size:16px;
+            transition:transform .2s ease, box-shadow .2s ease;
+            box-shadow:0 10px 22px rgba(193,154,77,.35);
+        }
+        .cta a:hover{
+            transform:translateY(-2px);
+            box-shadow:0 14px 28px rgba(193,154,77,.45);
+        }
+        .cta a:focus-visible{
+            outline:3px solid #f6efdd;
+            outline-offset:3px;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width:760px){
+            .page-header{ padding:100px 18px 90px; }
+            .page-header h1{ font-size:38px; }
+            .page-header p{ font-size:17px; }
+            .stat-strip{ grid-template-columns:1fr; margin-top:-30px; }
+            .stat-strip div{ border-left:none; border-bottom:1px solid var(--line); }
+            .stat-strip div:last-child{ border-bottom:none; }
+            .about-card{ padding:28px 22px; }
+            .about-card h2{ font-size:23px; }
+            .about-card p, .list li{ font-size:16px; }
+            .duo{ grid-template-columns:1fr; }
+        }
+
+        @media (prefers-reduced-motion:reduce){
+            .cta a{ transition:none; }
+        }
+    </style>
+
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="./index.html" class="logo" aria-label="فیضان دواخانہ">
+                 <img src="./images/logo.png" alt="فیضان دواخانہ لوگو" class="logo-img">
+               
+            </a>
+
+            <ul class="menu" id="menu">
+                <li><a href="./index.html">ہوم</a></li>
+                <li><a href="./2.html">پروڈکٹس</a></li>
+               
+                <li><a href="./4.html">آن لائن مشورہ</a></li>   
+                             <li><a href="./contact.html">رابطہ کریں</a></li>
+
+            </ul>
+
+           
+
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<header class="page-header">
+    <p class="eyebrow">فیضان دواخانہ</p>
+    <h1>حکیم صاحب کا تعارف</h1>
+    <p>قدرتی علاج • یونانی طب • صحت مند زندگی</p>
+    <!-- <div class="header-tags">
+        <span>مردانہ و زنانہ امراض</span>
+        <span>معدہ و جگر کے امراض</span>
+        <span>جوڑوں کا علاج</span>
+        <span>آن لائن مشاورت</span>
+    </div> -->
+</header>
+
+<div class="stat-strip">
+    <div>
+        <strong>+ سالہا</strong>
+        <span>یونانی طب میں عملی تجربہ</span>
+    </div>
+    <div>
+        <strong>+ ہزاروں</strong>
+        <span>کامیاب علاج شدہ مریض</span>
+    </div>
+    <div>
+        <strong>100٪</strong>
+        <span>قدرتی جڑی بوٹیوں پر مبنی ادویات</span>
+    </div>
+</div>
+
+<div class="about-wrapper">
+
+    <div class="about-card">
+        <div class="section-label"><span class="mark"></span><span>تعارف</span></div>
+        <h2>سوانح حیات</h2>
+        <p>
+            حکیم صاحب کئی برسوں سے یونانی طب اور قدرتی جڑی بوٹیوں کے ذریعے مریضوں کی خدمت انجام دے رہے ہیں۔ ان کا مقصد ہر مریض کو محفوظ، مؤثر اور قدرتی علاج فراہم کرنا ہے تاکہ وہ صحت مند اور خوشحال زندگی گزار سکے۔
+        </p>
+    </div>
+
+    <div class="about-card">
+        <div class="section-label"><span class="mark"></span><span>مہارت</span></div>
+        <h2>تجربہ</h2>
+        <ul class="list">
+            <li>
+                <span class="leaf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f6efdd" stroke-width="2" stroke-linecap="round"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z"/><path d="M4 20 20 4"/></svg>
+                </span>
+                یونانی طب میں کئی سالوں کا عملی تجربہ
+            </li>
+            <li>
+                <span class="leaf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f6efdd" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </span>
+                ہزاروں مریضوں کا کامیاب علاج
+            </li>
+            <li>
+                <span class="leaf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f6efdd" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+                </span>
+                قدرتی جڑی بوٹیوں پر مبنی ادویات کی تیاری
+            </li>
+            <li>
+                <span class="leaf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f6efdd" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 10h8M8 14h5"/></svg>
+                </span>
+                آن لائن اور بالمشافہ طبی مشاورت
+            </li>
+            <li>
+                <span class="leaf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#f6efdd" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-4.5-9-9c-1.5-3.5 1-7 4.5-7 2 0 3.5 1 4.5 2.5C13 6 14.5 5 16.5 5c3.5 0 6 3.5 4.5 7-2 4.5-9 9-9 9Z"/></svg>
+                </span>
+                مردانہ، زنانہ، معدہ، جگر اور جوڑوں کے امراض کا علاج
+            </li>
+             <li>
+                <span class="leaf">
+<i class="fa-solid fa-children" style="color: rgba(255, 255, 255, 0.834);"></i>                </span>
+                بے اولاد جوڑوں کے لیے امید کی نئی کرن، مؤثر علاج اور رہنمائی۔       
+            </li>
+        </ul>
+    </div>
+
+    <div class="divider">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2c4 4 4 8 0 12-4-4-4-8 0-12Z"/><path d="M12 14v8"/></svg>
+    </div>
+
+    <div class="duo">
+        <div class="about-card">
+            <div class="section-label"><span class="mark"></span><span>سوچ</span></div>
+            <h2>فلسفۂ علاج</h2>
+            <p>
+                ہم یقین رکھتے ہیں کہ قدرتی جڑی بوٹیاں جسم کی اندرونی طاقت کو بحال کرتی ہیں۔ ہمارا مقصد صرف بیماری کی علامات کو ختم کرنا نہیں بلکہ بیماری کی بنیادی وجہ کا علاج کرنا ہے تاکہ مریض مکمل صحت حاصل کر سکے۔
+            </p>
+        </div>
+
+        <div class="about-card">
+            <div class="section-label"><span class="mark"></span><span>عزم</span></div>
+            <h2>ہمارا مشن</h2>
+            <p>
+                لوگوں کو معیاری، محفوظ اور قدرتی علاج فراہم کرنا، مریض کی مکمل رازداری کا خیال رکھنا اور ہر فرد تک بہترین طبی سہولیات پہنچانا ہمارا مشن ہے۔
+            </p>
+        </div>
+    </div>
+
+    <div class="about-card">
+        <div class="section-label"><span class="mark"></span><span>مستقبل</span></div>
+        <h2>ہمارا وژن</h2>
+        <p>
+            یونانی طب کو جدید دور کے تقاضوں کے مطابق فروغ دینا، قدرتی علاج کو عام کرنا اور ہر گھر تک قابل اعتماد طبی خدمات پہنچانا ہمارا وژن ہے۔
+        </p>
+    </div>
+
+    <div class="about-card">
+        <div class="section-label"><span class="mark"></span><span>اعتماد</span></div>
+        <h2>اسناد و سرٹیفکیٹس</h2>
+        <p>
+            حکیم صاحب نے مختلف طبی اداروں سے تعلیم اور تربیت حاصل کی ہے اور متعدد طبی سیمینارز میں شرکت کی ہے۔
+        </p>
+
+        <div class="certificate-grid">
+                <div class="certificate">
+                <img src="./images/c01.png" alt="سرٹیفکیٹ 1" class="cert-image">
+                <div class="cert-body">
+                    <div class="seal">01</div>
+                    <div class="cert-title">سرٹیفکیٹ نمبر 1</div>
+                </div>
+            </div>
+            <div class="certificate">
+                <img src="./images/c02.png" alt="سرٹیفکیٹ 2" class="cert-image">
+                <div class="cert-body">
+                    <div class="seal">02</div>
+                    <div class="cert-title">سرٹیفکیٹ نمبر 2</div>
+                </div>
+            </div>
+            <div class="certificate">
+                <img src="./images/c03.png" alt="سرٹیفکیٹ 3" class="cert-image">
+                <div class="cert-body">
+                    <div class="seal">03</div>
+                    <div class="cert-title">سرٹیفکیٹ نمبر 3</div>
+                </div>
+            </div>
+            <div class="certificate">
+                <img src="./images/c04.png" alt="سرٹیفکیٹ 4" class="cert-image">
+                <div class="cert-body">
+                    <div class="seal">04</div>
+                    <div class="cert-title">سرٹیفکیٹ نمبر 4</div>
+                </div>
+            </div>
+            <div class="certificate">
+                <img src="./images/c05.png" alt="سرٹیفکیٹ 5" class="cert-image">
+                <div class="cert-body">
+                    <div class="seal">05</div>
+                    <div class="cert-title">سرٹیفکیٹ نمبر 5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta">
+        <h2>آن لائن مشورہ حاصل کریں</h2>
+        <p>
+            اگر آپ علاج یا رہنمائی چاہتے ہیں تو ابھی آن لائن مشورہ حاصل کریں۔
+        </p>
+        <a href="4.html">آن لائن مشورہ</a>
+    </div>
+
+</div>
+
+<script src="js/cart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ہماری مصنوعات | فیضان دواخانہ - قدرتی و یونانی طب</title>
+    <meta name="description" content="فیضان دواخانہ کی تمام قدرتی و یونانی مصنوعات - معجون، تیل، کیپسول، شربت اور جوشاندے آن لائن آرڈر کریں۔">
+<link rel="icon" type="image/png" href="f.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /*==================================
+        PRODUCTS PAGE HEADER
+        (logo centered, hamburger on the left — desktop & mobile)
+        ==================================*/
+
+        .shop-header .nav{
+            position:relative;
+            display:grid;
+            grid-template-columns:60px 1fr 60px;
+            align-items:center;
+            height:100px;
+            padding:0;
+        }
+
+        .shop-header .hamburger{
+            display:flex;
+            align-items:center;
+            justify-content:flex-start;
+            grid-column:1;
+            font-size:28px;
+            color:#fff;
+            cursor:pointer;
+            width:44px;
+            height:44px;
+        }
+
+        .shop-header .logo{
+            grid-column:2;
+            justify-self:center;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:0;
+            margin:0;
+            height:100%;
+        }
+
+        .shop-header .logo-img{
+            height:100px;
+            width:auto;
+            max-width:none;
+            display:block;
+            object-fit:contain;
+            padding:0;
+        }
+
+        .shop-header .nav-spacer{
+            grid-column:3;
+        }
+
+        /* off-canvas side menu, opens from the right, works identically on desktop & mobile */
+        .shop-header .menu{
+            position:fixed;
+            top:0;
+            right:-320px;
+            width:300px;
+            height:100vh;
+            background:var(--green);
+            display:flex;
+            flex-direction:column;
+            align-items:stretch;
+            justify-content:flex-start;
+            padding:110px 30px 30px;
+            gap:8px;
+            transition:.4s;
+            box-shadow:-15px 0 40px rgba(0,0,0,.25);
+            z-index:1000;
+        }
+
+        .shop-header .menu.active{
+            right:0;
+        }
+
+        .shop-header .menu li{
+            width:100%;
+            border-bottom:1px solid rgba(255,255,255,.08);
+        }
+
+        .shop-header .menu a{
+            display:block;
+            padding:16px 6px;
+            font-size:18px;
+        }
+
+        .menu-close-btn{
+            margin:0 0 12px auto;
+            border:none;
+            background:transparent;
+            color:#fff;
+            font-size:24px;
+            cursor:pointer;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:40px;
+            height:40px;
+            border-radius:50%;
+        }
+
+        .menu-close-btn:hover{
+            background:rgba(255,255,255,.12);
+        }
+
+        .menu-overlay{
+            position:fixed;
+            inset:0;
+            background:rgba(0,0,0,.5);
+            opacity:0;
+            visibility:hidden;
+            transition:.35s;
+            z-index:900;
+        }
+
+        .menu-overlay.active{
+            opacity:1;
+            visibility:visible;
+        }
+
+        @media (max-width:600px){
+            .shop-header .nav{ height:78px; }
+            .shop-header .logo-img{ height:78px; }
+        }
+
+        /*==================================
+        PAGE BANNER
+        ==================================*/
+
+        .shop-banner{
+            padding:170px 0 70px;
+            text-align:center;
+            background:
+                linear-gradient(rgba(13,35,20,.72),rgba(13,35,20,.72)),
+                url("../images/hh.png");
+            background-size:cover;
+            background-position:center;
+        }
+
+        .shop-banner h1{
+            color:#fff;
+            font-size:44px;
+            margin-bottom:14px;
+        }
+
+        .shop-banner p{
+            color:#ececec;
+            font-size:17px;
+        }
+
+        .breadcrumb{
+            display:inline-flex;
+            gap:10px;
+            margin-top:20px;
+            color:var(--gold);
+            font-size:15px;
+        }
+
+        .breadcrumb a{ color:#e7dcbe; }
+        .breadcrumb a:hover{ color:var(--gold); }
+
+        /*==================================
+        FILTER BAR
+        ==================================*/
+
+        .filter-bar{
+            background:#fff;
+            box-shadow:0 6px 20px rgba(0,0,0,.06);
+            position:sticky;
+            top:100px;
+            z-index:50;
+        }
+
+        .filter-bar .container{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            gap:16px;
+            padding:18px 0;
+        }
+
+        .filter-tabs{
+            display:flex;
+            gap:10px;
+            flex-wrap:wrap;
+        }
+
+        .filter-tabs button{
+            border:1px solid #ddd;
+            background:#fff;
+            padding:9px 22px;
+            border-radius:50px;
+            font-weight:500;
+            color:var(--text);
+            cursor:pointer;
+            transition:.3s;
+            font-family:inherit;
+        }
+
+        .filter-tabs button:hover{
+            border-color:var(--gold);
+            color:var(--gold);
+        }
+
+        .filter-tabs button.active{
+            background:var(--green);
+            border-color:var(--green);
+            color:#fff;
+        }
+
+        .result-count{
+            color:#777;
+            font-size:14px;
+            white-space:nowrap;
+        }
+
+        @media (max-width:600px){
+            .filter-bar{ top:78px; }
+            .filter-bar .container{ justify-content:center; text-align:center; }
+        }
+
+        /*==================================
+        SHOP PRODUCT GRID (20 items)
+        ==================================*/
+
+        .shop-products{
+            background:#f8f5ee;
+            padding-top:60px;
+        }
+
+        .shop-grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:30px;
+        }
+
+        .shop-grid .card{
+            position:relative;
+            display:block;
+            cursor:pointer;
+            color:inherit;
+        }
+
+        /* Fix: the nested old-price and the "تفصیل دیکھیں" span were being
+           caught by the site-wide ".card span" rule (display:block, gold,
+           bold), which collapsed the price line. Restore their intended look. */
+        .shop-grid .card .old-price{
+            display:inline;
+            font-size:15px;
+            color:#aaa;
+            font-weight:500;
+            margin-inline-start:8px;
+        }
+
+        .shop-grid .card .btn{
+            display:inline-block;
+            font-size:15px;
+            font-weight:600;
+            color:#fff;
+            background:var(--gold);
+            padding:10px 26px;
+            border-radius:50px;
+            margin:10px 0 0;
+        }
+
+        .shop-grid .card .btn:hover{
+            background:#aa8748;
+        }
+
+        .shop-grid .card .card-actions{
+            display:flex;
+            gap:10px;
+            margin-top:10px;
+        }
+
+        .shop-grid .card .card-actions .btn{
+            flex:1;
+            text-align:center;
+            margin:0;
+        }
+
+        .shop-grid .card .cart-btn{
+            background:transparent;
+            border:2px solid var(--green);
+            color:var(--green);
+        }
+
+        .shop-grid .card .cart-btn:hover{
+            background:var(--green);
+            color:#fff;
+        }
+
+        .badge{
+            position:absolute;
+            top:16px;
+            right:16px;
+            background:var(--green);
+            color:#fff;
+            font-size:12px;
+            font-weight:600;
+            padding:5px 14px;
+            border-radius:50px;
+            z-index:2;
+        }
+
+        .badge.sale{
+            background:#a63b3b;
+        }
+
+        .card-img-wrap{
+            position:relative;
+            overflow:hidden;
+        }
+
+        .card-img-wrap img{
+            height:230px;
+            width:100%;
+            object-fit:cover;
+            transition:.5s;
+        }
+
+        .card:hover .card-img-wrap img{
+            transform:scale(1.08);
+        }
+
+        .card .cat{
+            display:block;
+            margin-top:18px;
+            font-size:13px;
+            letter-spacing:.5px;
+            color:var(--gold);
+            font-weight:600;
+        }
+
+        .card h3{
+            margin-top:6px;
+            font-size:21px;
+        }
+
+        .old-price{
+            text-decoration:line-through;
+            color:#aaa;
+            font-size:15px;
+            margin-inline-start:8px;
+        }
+
+        .pagination{
+            display:flex;
+            justify-content:center;
+            gap:10px;
+            margin-top:60px;
+        }
+
+        .pagination a{
+            width:44px;
+            height:44px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border-radius:50%;
+            background:#fff;
+            color:var(--green);
+            font-weight:600;
+            box-shadow:0 6px 18px rgba(0,0,0,.08);
+            transition:.3s;
+        }
+
+        .pagination a.active,
+        .pagination a:hover{
+            background:var(--green);
+            color:#fff;
+        }
+
+        /* Keep card buttons in separate stacked rows on computer/laptop screens */
+        @media(min-width:601px){
+            .shop-grid .card .card-actions{
+                display:flex !important;
+                flex-direction:column !important;
+                gap:10px !important;
+            }
+
+            .shop-grid .card .card-actions .btn{
+                flex:0 0 auto !important;
+                width:100% !important;
+                margin:0 !important;
+                text-align:center;
+            }
+        }
+
+        @media(max-width:1200px){
+            .shop-grid{ grid-template-columns:repeat(3,1fr); }
+        }
+
+        @media(max-width:768px){
+            .shop-grid{ grid-template-columns:repeat(2,1fr); }
+            .shop-banner{ padding:140px 0 55px; }
+            .shop-banner h1{ font-size:32px; }
+        }
+
+        @media(max-width:480px){
+            .shop-grid{ grid-template-columns:1fr; }
+        }
+
+        /*==================================
+        MOBILE: horizontal product card
+        (square image on the right, name/detail/
+        price/add-to-cart stacked beside it)
+        ==================================*/
+        @media(max-width:600px){
+            .shop-grid{
+                grid-template-columns:1fr;
+                gap:14px;
+            }
+
+            .shop-products{
+                padding-top:30px;
+                padding-bottom:40px;
+            }
+
+            .shop-grid .card{
+                display:grid;
+                grid-template-columns:112px 1fr;
+                align-items:center;
+                gap:10px 18px;
+                padding:16px;
+                border-radius:18px;
+                text-align:right;
+            }
+
+            .shop-grid .card:hover{
+                transform:none;
+            }
+
+            /* column 1 sits on the right in RTL — that's where the image goes */
+            .shop-grid .card-img-wrap{
+                grid-column:1;
+                grid-row:1 / span 4;
+                width:112px;
+                height:112px;
+                align-self:center;
+                border-radius:14px;
+            }
+
+            .shop-grid .card-img-wrap img{
+                width:112px;
+                height:112px;
+                object-fit:cover;
+                border-radius:14px;
+            }
+
+            .shop-grid .card .badge{
+                top:5px;
+                right:5px;
+                font-size:9px;
+                padding:3px 8px;
+            }
+
+            .shop-grid .card .cat{
+                grid-column:2;
+                grid-row:1;
+                margin:0;
+                font-size:11.5px;
+            }
+
+            .shop-grid .card h3{
+                grid-column:2;
+                grid-row:2;
+                margin:0;
+                font-size:16.5px;
+                line-height:1.35;
+            }
+
+            .shop-grid .card p{
+                grid-column:2;
+                grid-row:3;
+                margin:0;
+                font-size:12.5px;
+                color:#777;
+                display:-webkit-box;
+                -webkit-line-clamp:1;
+                -webkit-box-orient:vertical;
+                overflow:hidden;
+            }
+
+            .shop-grid .card > span{
+                grid-column:2;
+                grid-row:4;
+                margin:0;
+                font-size:16px;
+                justify-self:start;
+            }
+
+            .shop-grid .card .old-price{
+                font-size:12px;
+            }
+
+            /* full-width button row below the image + details */
+            .shop-grid .card .card-actions{
+                grid-column:1 / -1;
+                grid-row:5;
+                display:flex;
+                gap:12px;
+                margin-top:6px;
+            }
+
+            .shop-grid .card .card-actions .btn{
+                flex:1;
+                text-align:center;
+                margin:0;
+                padding:11px 0;
+                font-size:13px;
+                border-radius:50px;
+            }
+
+            .shop-grid .card .cart-btn{
+                border:2px solid var(--green);
+                color:var(--green);
+                background:transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!--====================
+HEADER
+=====================-->
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="./index.html" class="logo" aria-label="فیضان دواخانہ">
+                 <img src="./images/logo.png" alt="فیضان دواخانہ لوگو" class="logo-img">
+               
+            </a>
+
+            <ul class="menu" id="menu">
+                <li><a href="./index.html">ہوم</a></li>
+                <li><a href="./3.html">حکیم صاحب</a></li>
+               
+                <li><a href="./4.html">آن لائن مشورہ</a></li>
+                                <li><a href="./contact.html">رابطہ کریں</a></li>
+
+            </ul>
+
+           
+
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!--====================
+BANNER
+=====================-->
+<section class="shop-banner">
+    <div class="container">
+        <h1>ہماری مصنوعات</h1>
+        <p>خالص قدرتی جڑی بوٹیوں سے تیار کردہ یونانی ادویات آن لائن آرڈر کریں۔</p>
+        <div class="breadcrumb">
+            <a href="index.html">ہوم</a> <span>/</span> <span>پروڈکٹس</span>
+        </div>
+    </div>
+</section>
+<!-- 
+<section class="filter-bar">
+    <div class="container">
+        <div class="filter-tabs">
+            <button class="active">تمام مصنوعات</button>
+            <button>معجون</button>
+            <button>تیل</button>
+            <button>کیپسول</button>
+            <button>شربت</button>
+            <button>جوشاندہ</button>
+        </div>
+        <span class="result-count">کل 20 مصنوعات</span>
+    </div>
+</section> -->
+
+<!--====================
+PRODUCT GRID
+=====================-->
+<section class="shop-products">
+    <div class="container">
+        <div class="shop-grid">
+
+           <!-- Product 1 -->
+<a href="product.html?id=1" class="card fade-up show">
+    <div class="card-img-wrap">
+        <span class="badge">نیا</span>
+        <img src="images/1.png" alt="معجونِ حیات">
+    </div>
+    <span class="cat">معجون</span>
+    <h3>معجونِ حیات</h3>
+    <p>• جسمانی طاقت و توانائی کے لیے<br>• خالص جڑی بوٹیوں سے تیار<br>• 200 گرام</p>
+    <span>Rs. 2000</span>
+    <div class="card-actions">
+        <span class="btn cart-btn" onclick="event.preventDefault()">کارٹ میں ڈالیں</span>
+        <span class="btn primary">تفصیل دیکھیں</span>
+    </div>
+</a>
+
+<!-- Product 2 -->
+<a href="product.html?id=2" class="card fade-up show">
+    <div class="card-img-wrap">
+        <img src="images/2.png" alt="کھانسی کا شربت">
+    </div>
+    <span class="cat">شربت</span>
+    <h3>کھانسی کا شربت</h3>
+    <p>• کھانسی اور گلے کے لیے مفید<br>• آرام دہ ہربل فارمولا<br>• 120 ملی لیٹر</p>
+    <span>Rs. 300</span>
+    <div class="card-actions">
+        <span class="btn cart-btn" onclick="event.preventDefault()">کارٹ میں ڈالیں</span>
+        <span class="btn primary">تفصیل دیکھیں</span>
+    </div>
+</a>
+
+<!-- Product 3 -->
+<a href="product.html?id=3" class="card fade-up show">
+    <div class="card-img-wrap">
+        <img src="images/3.png" alt="راحتِ ورم">
+    </div>
+    <span class="cat">شربت</span>
+    <h3>راحتِ ورم</h3>
+    <p>• ہربل نسخہ<br>• روزانہ استعمال کے لیے موزوں<br>• 800 ملی لیٹر</p>
+    <span>Rs. 350</span>
+    <div class="card-actions">
+        <span class="btn cart-btn" onclick="event.preventDefault()">کارٹ میں ڈالیں</span>
+        <span class="btn primary">تفصیل دیکھیں</span>
+    </div>
+</a>
+
+<!-- Product 4 -->
+<a href="product.html?id=4" class="card fade-up show">
+    <div class="card-img-wrap">
+        <img src="images/11.png" alt="مصفّیٰ خاص">
+    </div>
+    <span class="cat">شربت</span>
+    <h3>مصفّیٰ خاص</h3>
+    <p>• ہربل شربت<br>• روزمرہ صحت کے لیے معاون<br>• 240 ملی لیٹر</p>
+    <span>Rs. 300</span>
+    <div class="card-actions">
+        <span class="btn cart-btn" onclick="event.preventDefault()">کارٹ میں ڈالیں</span>
+        <span class="btn primary">تفصیل دیکھیں</span>
+    </div>
+</a>
+
+<!-- Product 5 -->
+<a href="product.html?id=5" class="card fade-up show">
+    <div class="card-img-wrap">
+        <img src="images/5.png" alt="مقوی دماغ">
+    </div>
+    <span class="cat">معجون</span>
+    <h3>مقوی دماغ</h3>
+    <p>• دماغی تازگی کے لیے<br>• ہربل اجزاء پر مشتمل<br>• 150 گرام</p>
+    <span>Rs. 500</span>
+    <div class="card-actions">
+        <span class="btn cart-btn" onclick="event.preventDefault()">کارٹ میں ڈالیں</span>
+        <span class="btn primary">تفصیل دیکھیں</span>
+    </div>
+</a>
+
+<!-- Product 6 -->
+<a href="product.html?id=6" class="card fade-up show">
+    <div class="card-img-wrap">
+        <img src="images/6.png" alt="فیضان ہیئر آئل">
+    </div>
+    <span class="cat">تیل</span>
+    <h3>فیضان ہیئر آئل</h3>
+    <p>• بالوں کی قدرتی نگہداشت<br>• مضبوط اور صحت مند بالوں کے لیے<br>• 200 ملی لیٹر</p>
+    <span>Rs. 350</span>
+    <div class="card-actions">
+        <span class="btn cart-btn" onclick="event.preventDefault()">کارٹ میں ڈالیں</span>
+        <span class="btn primary">تفصیل دیکھیں</span>
+    </div>
+</a>
+
+<!-- Product 7 -->
+<a href="product.html?id=7" class="card fade-up show">
+    <div class="card-img-wrap">
+        <span class="badge">نیا</span>
+        <img src="images/7.png" alt="فیضان گولڈ ہیئر آئل">
+    </div>
+    <span class="cat">تیل</span>
+    <h3>فیضان گولڈ ہیئر آئل</h3>
+    <p>• پریمیم ہربل ہیئر آئل<br>• گہری غذائیت فراہم کرے<br>• 200 ملی لیٹر</p>
+    <span>Rs. 2000</span>
+    <div class="card-actions">
+        <span class="btn cart-btn" onclick="event.preventDefault()">کارٹ میں ڈالیں</span>
+        <span class="btn primary">تفصیل دیکھیں</span>
+    </div>
+</a>
+
+<!-- Product 8 -->
+<a href="product.html?id=8" class="card fade-up show">
+    <div class="card-img-wrap">
+        <img src="images/8.png" alt="خالص شہد">
+    </div>
+    <span class="cat">شہد</span>
+    <h3>خالص شہد</h3>
+    <p>• 100٪ خالص شہد<br>• قدرتی غذائیت سے بھرپور<br>• 1 کلوگرام</p>
+    <span>Rs. 2000</span>
+    <div class="card-actions">
+        <span class="btn cart-btn" onclick="event.preventDefault()">کارٹ میں ڈالیں</span>
+        <span class="btn primary">تفصیل دیکھیں</span>
+    </div>
+</a>
+
+<!-- Product 9 -->
+<a href="product.html?id=9" class="card fade-up show">
+    <div class="card-img-wrap">
+        <img src="images/9.png" alt="سلاجیت">
+    </div>
+    <span class="cat">قدرتی دوا</span>
+    <h3>سلاجیت</h3>
+    <p>• اعلیٰ معیار کی سلاجیت<br>• خالص قدرتی اجزاء<br>• 10 گرام</p>
+    <span>Rs. 1500</span>
+    <div class="card-actions">
+        <span class="btn cart-btn" onclick="event.preventDefault()">کارٹ میں ڈالیں</span>
+        <span class="btn primary">تفصیل دیکھیں</span>
+    </div>
+</a><a href="product.html?id=12" class="card fade-up show">
+    <div class="card-img-wrap">
+        <span class="badge">بہترین</span>
+        <img src="images/12.png" alt="ایم ایس ہضموجان پھکی">
+    </div>
+    <span class="cat">پھکی</span>
+    <h3>ایم ایس ہضموجان پھکی</h3>
+    <p>• ہاضمے کی بہتری کے لیے روایتی ہربل نسخہ<br>• قدرتی جڑی بوٹیوں سے تیار<br>• روزمرہ استعمال کے لیے موزوں<br>• وزن: 100 گرام</p>
+    <span>Rs. 500</span>
+    <div class="card-actions">
+        <span class="btn cart-btn" onclick="event.preventDefault()">کارٹ میں ڈالیں</span>
+        <span class="btn primary">تفصیل دیکھیں</span>
+    </div>
+</a>
+        </div>
+
+    </div>
+</section>
+
+<!--====================
+SHOP CTA
+=====================-->
+<section class="shop-cta">
+    <div class="container">
+        <h2>مزید رہنمائی درکار ہے؟</h2>
+        <p>اپنی بیماری کے مطابق صحیح دوا کے انتخاب کے لیے حکیم صاحب سے آن لائن مشورہ کریں۔</p>
+        <a href="2.html" class="btn primary">آن لائن مشورہ بک کریں</a>
+    </div>
+</section>
+
+<!--====================
+FOOTER
+=====================-->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3>فیضان دواخانہ</h3>
+                <p>قدرتی جڑی بوٹیوں اور یونانی طب کے ذریعے ہزاروں مریضوں کی خدمت۔ ہمارا مقصد ہر گھر تک محفوظ اور مؤثر علاج پہنچانا ہے۔</p>
+            </div>
+
+            <div>
+                <h4>فوری روابط</h4>
+                <a href="index.html#home">ہوم</a>
+                <a href="products.html">پروڈکٹس</a>
+                <a href="3.html">حکیم صاحب</a>
+                <a href="2.html">آن لائن مشورہ</a>
+            </div>
+
+            <div>
+                <h4>رابطہ کریں</h4>
+                <a href="tel:+923000505070"><i class="fas fa-phone"></i> 03000505070</a>
+                <a href="https://wa.me/923000505070"><i class="fab fa-whatsapp"></i> واٹس ایپ پر پیغام</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> پاکستان</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2026 فیضان دواخانہ - جملہ حقوق محفوظ ہیں۔
+        </div>
+    </div>
+</footer>
+
+<!--====================
+FLOATING BUTTONS
+=====================-->
+<a href="cart.html" class="whatsapp cart-float" aria-label="ٹوکری">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count">0</span>
+</a>
+
+<div class="scroll-top" id="scrollTop" aria-label="اوپر جائیں">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<!--====================
+SCRIPT
+=====================-->
+<script src="js/cart.js"></script>
+<script>
+    // Off-canvas menu toggle (hamburger left, works same on desktop & mobile)
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('menuOverlay');
+    const closeBtn = document.getElementById('menuClose');
+
+    function openMenu(){
+        menu.classList.add('active');
+        overlay.classList.add('active');
+        hamburger.querySelector('i').classList.remove('fa-bars');
+        hamburger.querySelector('i').classList.add('fa-times');
+    }
+
+    function closeMenu(){
+        menu.classList.remove('active');
+        overlay.classList.remove('active');
+        hamburger.querySelector('i').classList.remove('fa-times');
+        hamburger.querySelector('i').classList.add('fa-bars');
+    }
+
+    function toggleMenu(){
+        if (menu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', closeMenu);
+    closeBtn.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+
+    document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            if(menu.classList.contains('active')) toggleMenu();
+        });
+    });
+
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) scrollTopBtn.classList.add('active');
+        else scrollTopBtn.classList.remove('active');
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Simple category filter
+    const tabs = document.querySelectorAll('.filter-tabs button');
+    const cards = document.querySelectorAll('.shop-grid .card');
+    const countLabel = document.querySelector('.result-count');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const chosen = tab.textContent.trim();
+            let visible = 0;
+
+            cards.forEach(card => {
+                const cat = card.querySelector('.cat').textContent.trim();
+                const show = chosen === 'تمام مصنوعات' || cat === chosen;
+                card.style.display = show ? '' : 'none';
+                if (show) visible++;
+            });
+
+            countLabel.textContent = 'کل ' + visible + ' مصنوعات';
+        });
+    });
+</script>
+
+</body>
+
+</html>

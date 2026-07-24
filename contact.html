@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رابطہ اور دکان کا پتہ | حکیم محمد شعیب شفیق - فیضان دواخانہ</title>
+    <meta name="description" content="حکیم محمد شعیب شفیق سے رابطہ کریں - موبائل نمبر، دکان کا مکمل پتہ اور نقشہ۔ فیضان دواخانہ - قدرتی و یونانی طب۔">
+<link rel="icon" type="image/png" href="f.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root{
+            --ink:#2f2a20;
+            --ink-soft:#5b5140;
+            --paper:#f7f2e6;
+            --paper-deep:#efe7d3;
+            --green-deep:#132b1c;
+            --green:#1d4029;
+            --green-soft:#2c5c3a;
+            --brass:#c19a4d;
+            --brass-light:#e2c988;
+            --maroon:#7a2f2c;
+            --line:#d8cba9;
+            --shadow: 0 18px 40px rgba(19,43,28,.10);
+        }
+
+        *{box-sizing:border-box;}
+
+        body{
+            background:
+                radial-gradient(1200px 600px at 15% -10%, rgba(193,154,77,.10), transparent 60%),
+                var(--paper);
+            margin:0;
+            color:var(--ink);
+            font-family:'Noto Naskh Arabic','Noto Nastaliq Urdu', serif;
+        }
+
+        h1,h2,h3{
+            font-family:'Noto Nastaliq Urdu','Noto Naskh Arabic', serif;
+        }
+
+        /* ---------- Page header ---------- */
+        .page-header{
+            position:relative;
+            background:
+                radial-gradient(700px 300px at 85% 0%, rgba(193,154,77,.18), transparent 60%),
+                linear-gradient(180deg, var(--green-deep), var(--green) 85%);
+            color:#f6efdd;
+            padding:130px 20px 100px;
+            text-align:center;
+            overflow:hidden;
+        }
+        .page-header::before,
+        .page-header::after{
+            content:"";
+            position:absolute;
+            width:220px;
+            height:220px;
+            border:1px solid rgba(226,201,136,.25);
+            border-radius:50%;
+        }
+        .page-header::before{ top:-90px; right:-70px; }
+        .page-header::after{ bottom:-110px; left:-60px; border-color:rgba(226,201,136,.15); }
+
+        .eyebrow{
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            color:var(--brass-light);
+            letter-spacing:.5px;
+            font-size:15px;
+            margin-bottom:22px;
+        }
+        .eyebrow::before,.eyebrow::after{
+            content:"";
+            width:34px;
+            height:1px;
+            background:rgba(226,201,136,.6);
+        }
+
+        .page-header h1{
+            font-size:52px;
+            font-weight:700;
+            margin:0 0 16px;
+            line-height:1.5;
+        }
+        .page-header p{
+            font-size:19px;
+            color:#e7dcbe;
+            margin:0;
+        }
+
+        /* ---------- Layout ---------- */
+        .contact-wrapper{
+            width:90%;
+            max-width:1150px;
+            margin:-46px auto 90px;
+            position:relative;
+            z-index:2;
+        }
+
+        .contact-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:30px;
+            align-items:stretch;
+        }
+
+        /* ---------- Info card ---------- */
+        .info-card{
+            background:#fffdf7;
+            border:1px solid var(--line);
+            border-radius:18px;
+            box-shadow:var(--shadow);
+            padding:40px;
+            display:flex;
+            flex-direction:column;
+        }
+
+        .hakeem-block{
+            display:flex;
+            align-items:center;
+            gap:18px;
+            padding-bottom:26px;
+            margin-bottom:26px;
+            border-bottom:1px dashed var(--line);
+        }
+        .hakeem-avatar{
+            flex:none;
+            width:72px;
+            height:72px;
+            border-radius:50%;
+            background:linear-gradient(160deg, var(--green), var(--green-deep));
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            box-shadow:0 8px 18px rgba(19,43,28,.25);
+        }
+        .hakeem-avatar i{
+            font-size:30px;
+            color:var(--brass-light);
+        }
+        .hakeem-name-block h2{
+            margin:0 0 6px;
+            font-size:25px;
+            color:var(--green-deep);
+        }
+        .hakeem-name-block span{
+            display:inline-block;
+            background:var(--paper-deep);
+            border:1px solid var(--line);
+            color:var(--green-soft);
+            font-size:13.5px;
+            padding:4px 14px;
+            border-radius:30px;
+        }
+
+        .detail-row{
+            display:flex;
+            align-items:flex-start;
+            gap:16px;
+            padding:16px 0;
+            border-bottom:1px solid var(--paper-deep);
+        }
+        .detail-row:last-of-type{ border-bottom:none; }
+
+        .detail-icon{
+            flex:none;
+            width:44px;
+            height:44px;
+            border-radius:12px;
+            background:var(--green-deep);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .detail-icon i{
+            color:var(--brass-light);
+            font-size:18px;
+        }
+
+        .detail-text label{
+            display:block;
+            font-size:13.5px;
+            color:var(--ink-soft);
+            margin-bottom:4px;
+        }
+        .detail-text a,
+        .detail-text p{
+            margin:0;
+            font-size:18px;
+            color:var(--green-deep);
+            text-decoration:none;
+            font-weight:600;
+            line-height:1.8;
+        }
+        .detail-text a:hover{ color:var(--maroon); }
+        .detail-text p{
+            font-weight:500;
+            color:var(--ink);
+        }
+
+        .action-btns{
+            display:flex;
+            gap:14px;
+            margin-top:30px;
+            flex-wrap:wrap;
+        }
+        .action-btns a{
+            flex:1;
+            min-width:150px;
+            text-align:center;
+            padding:14px 20px;
+            border-radius:40px;
+            text-decoration:none;
+            font-weight:700;
+            font-size:15.5px;
+            transition:transform .2s ease, box-shadow .2s ease;
+        }
+        .btn-call{
+            background:var(--brass);
+            color:#1f2a1f;
+            box-shadow:0 10px 22px rgba(193,154,77,.35);
+        }
+        .btn-whatsapp{
+            background:#25d366;
+            color:#fff;
+            box-shadow:0 10px 22px rgba(37,211,102,.35);
+        }
+        .btn-directions{
+            background:var(--green-deep);
+            color:#f6efdd;
+            box-shadow:0 10px 22px rgba(19,43,28,.3);
+        }
+        .action-btns a:hover{ transform:translateY(-2px); }
+
+        /* ---------- Map card ---------- */
+        .map-column{
+            display:flex;
+            flex-direction:column;
+            gap:16px;
+        }
+        .btn-directions-full{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:10px;
+            width:100%;
+            text-align:center;
+            padding:16px 20px;
+            border-radius:14px;
+            text-decoration:none;
+            font-weight:700;
+            font-size:16px;
+            background:var(--green-deep);
+            color:#f6efdd;
+            box-shadow:0 10px 22px rgba(19,43,28,.3);
+            transition:transform .2s ease, box-shadow .2s ease;
+        }
+        .btn-directions-full:hover{
+            transform:translateY(-2px);
+        }
+        .map-card{
+            border-radius:18px;
+            overflow:hidden;
+            border:1px solid var(--line);
+            box-shadow:var(--shadow);
+            position:relative;
+            min-height:340px;
+        }
+        .map-card iframe{
+            width:100%;
+            height:100%;
+            min-height:340px;
+            border:0;
+            display:block;
+        }
+        .map-badge{
+            position:absolute;
+            top:16px;
+            right:16px;
+            background:rgba(19,43,28,.9);
+            color:#f6efdd;
+            padding:8px 16px;
+            border-radius:30px;
+            font-size:13.5px;
+            display:flex;
+            align-items:center;
+            gap:8px;
+            backdrop-filter:blur(4px);
+        }
+        .map-badge i{ color:var(--brass-light); }
+
+        /* ---------- Timing strip ---------- */
+        .timing-strip{
+            margin-top:30px;
+            background:linear-gradient(180deg, var(--green-deep), var(--green));
+            border-radius:18px;
+            padding:30px 34px;
+            color:#f6efdd;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:20px;
+            flex-wrap:wrap;
+            box-shadow:var(--shadow);
+        }
+        .timing-strip .t-left{
+            display:flex;
+            align-items:center;
+            gap:16px;
+        }
+        .timing-strip .t-left i{
+            font-size:26px;
+            color:var(--brass-light);
+        }
+        .timing-strip h3{
+            margin:0 0 4px;
+            font-size:19px;
+        }
+        .timing-strip p{
+            margin:0;
+            color:#e7dcbe;
+            font-size:15px;
+        }
+        .timing-strip .t-right span{
+            display:inline-block;
+            background:rgba(226,201,136,.15);
+            border:1px solid rgba(226,201,136,.35);
+            padding:8px 18px;
+            border-radius:30px;
+            font-size:14.5px;
+            margin:4px;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width:900px){
+            .contact-grid{ grid-template-columns:1fr; }
+            .page-header{ padding:100px 18px 90px; }
+            .page-header h1{ font-size:34px; }
+            .info-card{ padding:28px 22px; }
+            .timing-strip{ flex-direction:column; text-align:center; }
+        }
+    </style>
+</head>
+
+<body>
+
+<!--====================
+HEADER
+=====================-->
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="./index.html" class="logo" aria-label="فیضان دواخانہ">
+                 <img src="./images/logo.png" alt="فیضان دواخانہ لوگو" class="logo-img">
+               
+            </a>
+
+            <ul class="menu" id="menu">
+                <li><a href="./index.html">ہوم</a></li>
+                <li><a href="./2.html">پروڈکٹس</a></li>
+                <li><a href="./3.html">حکیم صاحب</a></li>
+               
+                <li><a href="./4.html">آن لائن مشورہ</a></li>
+
+            </ul>
+
+           
+
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!--====================
+PAGE HEADER
+=====================-->
+<header class="page-header">
+    <p class="eyebrow">فیضان دواخانہ</p>
+    <h1>ہم سے رابطہ کریں</h1>
+    <p>حکیم صاحب سے براہ راست ملاقات کریں یا کال / واٹس ایپ پر رابطہ کریں</p>
+</header>
+
+<!--====================
+CONTACT CONTENT
+=====================-->
+<div class="contact-wrapper">
+    <div class="contact-grid">
+
+        <!-- Info Card -->
+        <div class="info-card">
+            <div class="hakeem-block">
+                <div class="hakeem-avatar">
+                    <i class="fas fa-user-doctor"></i>
+                </div>
+                <div class="hakeem-name-block">
+                    <h2>حکیم محمد شعیب شفیق</h2>
+                    <span>یونانی طب کے ماہر</span>
+                </div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-icon"><i class="fas fa-phone"></i></div>
+                <div class="detail-text">
+                    <label>موبائل نمبر</label>
+                    <a href="tel:+923000505070" dir="ltr">03000505070</a>
+                </div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-icon"><i class="fab fa-whatsapp"></i></div>
+                <div class="detail-text">
+                    <label>واٹس ایپ</label>
+                    <a href="https://wa.me/923000505070" target="_blank" dir="ltr">03000505070</a>
+                </div>
+            </div>
+
+            <div class="detail-row">
+                <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="detail-text">
+                    <label>دکان کا پتہ</label>
+                    <p>کامبوہ میڈیکل سٹور، شاہین آباد، گوجرانوالہ، پنجاب، پاکستان</p>
+                </div>
+            </div>
+
+            <div class="action-btns">
+                <a href="tel:+923000505070" class="btn-call"><i class="fas fa-phone"></i> کال کریں</a>
+                <a href="https://wa.me/923000505070" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> واٹس ایپ</a>
+            </div>
+        </div>
+
+        <!-- Map Card -->
+        <div class="map-column">
+            <div class="map-card">
+                <span class="map-badge"><i class="fas fa-location-dot"></i> دکان کا محلِ وقوع</span>
+                <iframe
+                    src="https://www.google.com/maps?q=32.1935039,74.1758982&hl=ur&z=17&output=embed"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <a href="https://maps.app.goo.gl/v4LCtd5mFk9zJ2HH8" target="_blank" class="btn-directions btn-directions-full"><i class="fas fa-diamond-turn-right"></i> راستہ دیکھیں</a>
+        </div>
+
+    </div>
+
+    <!-- Timing Strip -->
+    <div class="timing-strip">
+        <div class="t-left">
+            <i class="fas fa-clock"></i>
+            <div>
+                <h3>دکان کے اوقاتِ کار</h3>
+                <p>ہفتہ کے تمام دنوں میں مریضوں کی خدمت کے لیے حاضر</p>
+            </div>
+        </div>
+        <div class="t-right">
+            <span>صبح 9:00 - رات 10:00</span>
+            <span>جمعہ: نماز کے وقفہ کے علاوہ کھلا</span>
+        </div>
+    </div>
+</div>
+
+<!--====================
+FOOTER
+=====================-->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3>فیضان دواخانہ</h3>
+                <p>قدرتی جڑی بوٹیوں اور یونانی طب کے ذریعے ہزاروں مریضوں کی خدمت۔ ہمارا مقصد ہر گھر تک محفوظ اور مؤثر علاج پہنچانا ہے۔</p>
+            </div>
+
+            <div>
+                <h4>فوری روابط</h4>
+                <a href="index.html#home">ہوم</a>
+                <a href="index.html#products">پروڈکٹس</a>
+                <a href="3.html">حکیم صاحب</a>
+                <a href="4.html">آن لائن مشورہ</a>
+                <a href="contact.html">رابطہ / پتہ</a>
+            </div>
+
+            <div>
+                <h4>رابطہ کریں</h4>
+                <a href="tel:+923000505070"><i class="fas fa-phone"></i> 03000505070</a>
+                <a href="https://wa.me/923000505070"><i class="fab fa-whatsapp"></i> واٹس ایپ پر پیغام</a>
+                <a href="https://maps.app.goo.gl/v4LCtd5mFk9zJ2HH8" target="_blank"><i class="fas fa-map-marker-alt"></i> شاہین آباد، گوجرانوالہ</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2026 فیضان دواخانہ - جملہ حقوق محفوظ ہیں۔
+        </div>
+    </div>
+</footer>
+
+<!--====================
+FLOATING BUTTONS
+=====================-->
+<a href="cart.html" class="whatsapp cart-float" aria-label="ٹوکری">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count">0</span>
+</a>
+
+<div class="scroll-top" id="scrollTop" aria-label="اوپر جائیں">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<!--====================
+SCRIPT
+=====================-->
+<script src="js/cart.js"></script>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        hamburger.querySelector('i').classList.toggle('fa-bars');
+        hamburger.querySelector('i').classList.toggle('fa-times');
+    });
+
+    document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('active');
+        });
+    });
+
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            scrollTopBtn.classList.add('active');
+        } else {
+            scrollTopBtn.classList.remove('active');
+        }
+    });
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+
+</html>

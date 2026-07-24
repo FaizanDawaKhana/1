@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آپ کی ٹوکری | فیضان دواخانہ</title>
+    <meta name="description" content="اپنی ٹوکری دیکھیں، مقدار تبدیل کریں، پرومو کوڈ لگائیں اور آرڈر مکمل کریں - فیضان دواخانہ۔">
+<link rel="icon" type="image/png" href="f.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!--====================
+HEADER
+=====================-->
+<header class="header shop-header">
+    <div class="container">
+        <nav class="nav">
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <a href="index.html" class="logo" aria-label="فیضان دواخانہ">
+                 <img src="./images/logo.png" alt="فیضان دواخانہ لوگو" class="logo-img">
+               
+            </a>
+
+            <div class="nav-spacer"></div>
+
+            <ul class="menu" id="menu">
+                <li><a href="./index.html">ہوم</a></li>
+                <li><a href="./2.html">پروڈکٹس</a></li>
+                <li><a href="./3.html">حکیم صاحب</a></li>
+               
+                <li><a href="./4.html">آن لائن مشورہ</a></li>
+                <li><a href="./contact.html">رابطہ کریں</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!--====================
+CART PAGE
+=====================-->
+<section class="cart-page">
+    <div class="container">
+
+        <div class="page-title-row fade-up">
+            <div>
+                <h1>آپ کی ٹوکری</h1>
+                <div class="breadcrumb">
+                    <a href="index.html">ہوم</a><span class="sep">‹</span><span class="current">ٹوکری</span>
+                </div>
+            </div>
+            <a href="index.html#products" class="btn secondary-outline">
+                <i class="fas fa-arrow-right"></i>
+                خریداری جاری رکھیں
+            </a>
+        </div>
+
+        <div id="cart-container"></div>
+
+    </div>
+</section>
+
+<!--====================
+CHECKOUT MODAL
+=====================-->
+<div id="checkout-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>آرڈر مکمل کریں</h2>
+            <button class="modal-close" onclick="closeCheckoutModal()">&times;</button>
+        </div>
+        <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)">
+            <div class="form-group">
+                <label for="customer-name">پورا نام *</label>
+                <input type="text" id="customer-name" name="name" required placeholder="اپنا نام لکھیں">
+            </div>
+            <div class="form-group">
+                <label for="customer-phone">فون نمبر *</label>
+                <input type="tel" id="customer-phone" name="phone" required placeholder="03xx-xxxxxxx">
+            </div>
+            <div class="form-group" id="delivery-address-group">
+                <label for="customer-address">ڈیلیوری ایڈریس *</label>
+                <textarea id="customer-address" name="address" required placeholder="اپنا مکمل پتہ لکھیں" rows="3"></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn secondary-outline" onclick="closeCheckoutModal()">منسوخ کریں</button>
+                <button type="submit" class="btn primary">آرڈر جمع کروائیں</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--====================
+FOOTER
+=====================-->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3>فیضان دواخانہ</h3>
+                <p>قدرتی جڑی بوٹیوں اور یونانی طب کے ذریعے ہزاروں مریضوں کی خدمت۔ ہمارا مقصد ہر گھر تک محفوظ اور مؤثر علاج پہنچانا ہے۔</p>
+            </div>
+
+            <div>
+                <h4>فوری روابط</h4>
+                <a href="index.html#home">ہوم</a>
+                <a href="index.html#products">پروڈکٹس</a>
+                <a href="3.html">حکیم صاحب</a>
+                <a href="4.html">آن لائن مشورہ</a>
+            </div>
+
+            <div>
+                <h4>رابطہ کریں</h4>
+                <a href="tel:+923000505070"><i class="fas fa-phone"></i> 03000505070</a>
+                <a href="https://wa.me/923000505070"><i class="fab fa-whatsapp"></i> واٹس ایپ پر پیغام</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> پاکستان</a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © 2026 فیضان دواخانہ - جملہ حقوق محفوظ ہیں۔
+        </div>
+    </div>
+</footer>
+
+<a href="https://wa.me/923000505070" class="whatsapp" target="_blank" aria-label="واٹس ایپ">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<div class="scroll-top" id="scrollTop" aria-label="اوپر جائیں">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<script src="js/cart.js"></script>
+<script>
+    // Off-canvas menu toggle (hamburger left, works same on desktop & mobile)
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    const overlay = document.getElementById('menuOverlay');
+
+    function openMenu(){
+        menu.classList.add('active');
+        overlay.classList.add('active');
+        hamburger.querySelector('i').classList.remove('fa-bars');
+        hamburger.querySelector('i').classList.add('fa-times');
+    }
+
+    function closeMenu(){
+        menu.classList.remove('active');
+        overlay.classList.remove('active');
+        hamburger.querySelector('i').classList.remove('fa-times');
+        hamburger.querySelector('i').classList.add('fa-bars');
+    }
+
+    function toggleMenu(){
+        if (menu.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+
+    document.querySelectorAll('.menu a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) scrollTopBtn.classList.add('active');
+        else scrollTopBtn.classList.remove('active');
+    });
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    let appliedPromo = null;
+
+    function syncDeliveryFormState() {
+        const addressGroup = document.getElementById("delivery-address-group");
+        const addressInput = document.getElementById("customer-address");
+        if (addressGroup) addressGroup.style.display = getDeliveryService() === "pickup" ? "none" : "block";
+        if (addressInput) {
+            if (getDeliveryService() === "pickup") addressInput.removeAttribute("required");
+            else addressInput.setAttribute("required", "required");
+        }
+    }
+
+    function openCheckoutModal() {
+        syncDeliveryFormState();
+        document.getElementById("checkout-modal").style.display = "flex";
+    }
+
+    function closeCheckoutModal() {
+        document.getElementById("checkout-modal").style.display = "none";
+        const form = document.getElementById("checkout-form");
+        if (form) { form.reset(); syncDeliveryFormState(); }
+    }
+
+    function handleCheckoutSubmit(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("customer-name").value.trim();
+        const phone = document.getElementById("customer-phone").value.trim();
+        const address = document.getElementById("customer-address").value.trim();
+        const pickupBranch = getPickupBranch();
+        const deliveryService = getDeliveryService();
+
+        if (!name || !phone) { showToast("براہِ مہربانی تمام خانے پُر کریں"); return; }
+        if (deliveryService === "home-delivery" && !address) { showToast("براہِ مہربانی ڈیلیوری ایڈریس درج کریں"); return; }
+        if (deliveryService === "pickup" && !pickupBranch) { showToast("براہِ مہربانی برانچ منتخب کریں"); return; }
+
+        const cart = getCart();
+        const cartSummary = cart.map(item => `${item.name} x${item.qty} - ${formatRs(item.price * item.qty)}`).join("\n");
+
+        const subtotal = cartSubtotal();
+        const discount = appliedPromo ? PROMO_CODES[appliedPromo] : 0;
+        const discountedSubtotal = Math.max(0, subtotal - discount);
+        const deliveryCharges = cartDeliveryCharges();
+        const tax = cartTax(discountedSubtotal);
+        const total = discountedSubtotal + deliveryCharges + tax;
+        const serviceLabel = cartDeliveryLabel();
+        const pickupLine = deliveryService === "pickup" ? `\nبرانچ: ${pickupBranch}` : "";
+
+        const message = `
+*نیا آرڈر - فیضان دواخانہ*
+
+*کسٹمر کی تفصیلات:*
+نام: ${name}
+فون: ${phone}
+ایڈریس: ${address}
+
+*آرڈر آئٹمز:*
+${cartSummary}
+
+سب ٹوٹل: ${formatRs(subtotal)}
+${discount ? `پرومو کوڈ: ${appliedPromo}
+رعایت: -${formatRs(discount)}` : ""}
+ڈیلیوری کا طریقہ: ${serviceLabel}${pickupLine}
+ڈیلیوری چارجز: ${formatRs(deliveryCharges)}
+${tax ? `ٹیکس: ${formatRs(tax)}\n` : ""}*کل رقم: ${formatRs(total)}*
+        `.trim();
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+        clearCart();
+        closeCheckoutModal();
+        showToast("واٹس ایپ پر بھیجا جا رہا ہے...");
+        setTimeout(() => { window.location.href = whatsappUrl; }, 500);
+    }
+
+    function renderCartPage() {
+        const cart = getCart();
+        const container = document.getElementById("cart-container");
+
+        if (cart.length === 0) {
+            container.innerHTML = `
+                <div class="empty-cart">
+                    <i class="fas fa-basket-shopping"></i>
+                    <h3>آپ کی ٹوکری خالی ہے</h3>
+                    <p>لگتا ہے آپ نے ابھی تک کوئی پروڈکٹ شامل نہیں کی۔</p>
+                    <a href="index.html#products" class="btn primary">خریداری شروع کریں</a>
+                </div>`;
+            return;
+        }
+
+        const subtotal = cartSubtotal();
+        const discount = appliedPromo ? PROMO_CODES[appliedPromo] : 0;
+        const discountedSubtotal = Math.max(0, subtotal - discount);
+        const deliveryCharges = cartDeliveryCharges();
+        const tax = cartTax(discountedSubtotal);
+        const total = discountedSubtotal + deliveryCharges + tax;
+        const itemCount = cartCount();
+        const service = getDeliveryService();
+
+        container.innerHTML = `
+            <div class="cart-layout">
+                <div>
+                    <div class="cart-items">
+                        ${cart.map(item => `
+                            <div class="cart-row">
+                                <div class="cart-thumb">
+                                    ${item.image ? `<img src="${item.image}" alt="${item.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : ""}
+                                    <div class="cart-thumb-fallback" style="display:${item.image ? "none" : "flex"};">
+                                        <i class="fas fa-mortar-pestle"></i>
+                                    </div>
+                                </div>
+                                <div class="cart-item-info">
+                                    <h3>${item.name}</h3>
+                                    ${item.variantLabel ? `<div class="variant-tags">${item.variantLabel}</div>` : ""}
+                                    <div class="price">${formatRs(item.price)}</div>
+                                </div>
+                                <div class="cart-qty-col">
+                                    <div class="qty-control">
+                                        <button type="button" data-key="${item.key}" data-action="dec">−</button>
+                                        <input type="text" value="${item.qty}" readonly>
+                                        <button type="button" data-key="${item.key}" data-action="inc">+</button>
+                                    </div>
+                                </div>
+                                <button class="remove-btn" data-key="${item.key}" data-action="remove" aria-label="حذف کریں">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        `).join("")}
+                    </div>
+
+                    <div class="promo-row">
+                        <i class="fas fa-tag"></i>
+                        <span class="promo-label">پرومو کوڈ ہے؟</span>
+                        <input type="text" id="promo-input" placeholder="کوڈ درج کریں">
+                        <button class="btn primary" id="apply-promo">لگائیں</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="order-summary">
+                        <h3>آرڈر کی تفصیل</h3>
+                        <div class="delivery-option-box">
+                            <div class="dob-title">ڈیلیوری کا طریقہ</div>
+                            <label class="dob-radio">
+                                <input type="radio" name="delivery-service" value="home-delivery" ${service === "home-delivery" ? "checked" : ""}>
+                                ہوم ڈیلیوری
+                            </label>
+                            <label class="dob-radio">
+                                <input type="radio" name="delivery-service" value="pickup" ${service === "pickup" ? "checked" : ""}>
+                                دکان سے خود وصولی
+                            </label>
+                            ${service === "pickup" ? `<div class="dob-branch">
+                                <label for="summary-pickup-branch">برانچ منتخب کریں</label>
+                                <select id="summary-pickup-branch">
+                                    <option value="">برانچ منتخب کریں</option>
+                                    ${getPickupBranches().map(branch => `<option value="${branch}" ${getPickupBranch() === branch ? "selected" : ""}>${branch}</option>`).join("")}
+                                </select>
+                            </div>` : ""}
+                        </div>
+                        <div class="summary-line"><span>سب ٹوٹل (${itemCount} آئٹمز)</span><span>${formatRs(subtotal)}</span></div>
+                        ${discount ? `<div class="summary-line discount"><span>رعایت (${appliedPromo})</span><span>− ${formatRs(discount)}</span></div>` : ""}
+                        <div class="summary-line"><span>ڈیلیوری چارجز</span><span>${formatRs(deliveryCharges)}</span></div>
+                        ${tax ? `<div class="summary-line"><span>ٹیکس</span><span>${formatRs(tax)}</span></div>` : ""}
+                        <div class="summary-total"><span>کل رقم</span><span>${formatRs(total)}</span></div>
+                        <button class="btn primary btn-block" id="checkout-btn">
+                            <i class="fas fa-bag-shopping"></i>
+                            آرڈر مکمل کریں
+                        </button>
+                    </div>
+
+                    <div class="trust-mini">
+                        <div class="feature-item"><i class="fas fa-shield-halved"></i><div><b>محفوظ آرڈر</b><span>100% محفوظ اور بھروسہ مند</span></div></div>
+                        <div class="feature-item"><i class="fas fa-truck-fast"></i><div><b>تیز ڈیلیوری</b><span>آپ کا آرڈر جلد پہنچے گا</span></div></div>
+                        <div class="feature-item"><i class="fas fa-headset"></i><div><b>آسان رابطہ</b><span>واٹس ایپ پر ہر وقت رابطہ ممکن</span></div></div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        container.querySelectorAll('input[name="delivery-service"]').forEach(radio => {
+            radio.addEventListener("change", () => {
+                setDeliveryService(radio.value);
+                if (radio.value !== "pickup") setPickupBranch("");
+                renderCartPage();
+            });
+        });
+
+        const summaryPickupBranch = document.getElementById("summary-pickup-branch");
+        if (summaryPickupBranch) {
+            summaryPickupBranch.addEventListener("change", (event) => {
+                setPickupBranch(event.target.value);
+                renderCartPage();
+            });
+        }
+
+        container.querySelectorAll("[data-action]").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const key = btn.dataset.key;
+                const item = getCart().find(i => i.key === key);
+                if (!item) return;
+                if (btn.dataset.action === "inc") setQty(key, item.qty + 1);
+                if (btn.dataset.action === "dec") setQty(key, item.qty - 1);
+                if (btn.dataset.action === "remove") removeFromCart(key);
+                renderCartPage();
+            });
+        });
+
+        document.getElementById("apply-promo").addEventListener("click", () => {
+            const code = document.getElementById("promo-input").value.trim().toUpperCase();
+            if (PROMO_CODES[code]) {
+                appliedPromo = code;
+                showToast(`پرومو کوڈ ${code} لگا دیا گیا`);
+            } else {
+                showToast("غلط پرومو کوڈ");
+            }
+            renderCartPage();
+        });
+
+        document.getElementById("checkout-btn").addEventListener("click", () => openCheckoutModal());
+    }
+
+    renderCartPage();
+</script>
+
+</body>
+
+</html>
